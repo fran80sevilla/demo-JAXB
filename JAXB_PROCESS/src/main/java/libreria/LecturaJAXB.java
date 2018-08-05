@@ -41,24 +41,27 @@ public class LecturaJAXB {
 			/* creamos un objeto que permita pasar de XML a JAVA, es el Unmarshaller */
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 			
-			/* invocamos al metodo unmarshall, recibe un XML a partir de un File */
+			/* invocamos al metodo unmarshall, recibe un XML a partir de objeto File */
 			// unmarshaller.unmarshal(new File("libreria.xlm"));
 
-			File f = new File("libreria.xml");
+			File file = new File("libreria.xml");
 			// Asignamos a Libreria toda la informacion que nos devuelve el xml - unmarshaller devuelve Object
-			Libreria libreria = (Libreria) unmarshaller.unmarshal(f);
-			System.out.println("Nombre = " + libreria.getNombre());
+			Libreria libreria = (Libreria) unmarshaller.unmarshal(file);
+
+			System.out.println("Nombre de la librería: " + libreria.getNombre());
 			List<Libro> libros = libreria.getLibros();
 
 			System.out.println("Numero de Libros: " + libros.size());
+
 			Integer numero = 0;
 			for (Libro lib : libros) {
+				// mostramos solo las iniciales del autor a partir del 4º libro
 				if (numero > 2) {
 					System.out.println("ISBN:" + lib.getIsbn() + " ,titulo: " + lib.getTitulo() + " ,autor: "
 							+ lib.getAutor() + ", iniciales: " + inicialesAutor(lib.getAutor()));
 				} else
 					System.out.println("ISBN:" + lib.getIsbn() + " ,titulo: " + lib.getTitulo() + " ,autor: "
-							+ lib.getAutor().substring(0, 2));
+							+ lib.getAutor());
 				numero++;
 			}
 
