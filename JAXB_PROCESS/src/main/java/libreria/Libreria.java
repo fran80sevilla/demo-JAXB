@@ -12,12 +12,12 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * ES LA CLASE QUE REPRESENTA LA TOTALIDAD DEL XML
- * libreria representa elemento raiz del xml
+ * libreria representa el elemento raiz del xml
  * Tenemos Libreria > libros
- * la anotacion xmlrootelement nos indica que es el elemento raiz y el name debe llamarse igual que 
- * la etiqueta ROOT o raiz o principal
- * el arraylist introduciremos todos los libros, y corresponde a la etiqueta <libros> que es un envoltorio
- * que envuelve otros libros. Los elementos que son un envoltorio se definen como xmlelementwrapper
+ * la anotacion XmlRootElement nos indica que es el elemento raiz y el name debe llamarse igual que 
+ * la etiqueta ROOT o raiz principal
+ * En el arraylist introduciremos todos los libros, y corresponde a la etiqueta <libros> que es un 
+ * envoltorio de los libros. Los elementos que son un envoltorio se definen como XmlElementWrapper
  * 
  * @author Fran
  *
@@ -29,14 +29,14 @@ public class Libreria {
 	private String nombre;
 	private String libro;
 	
-	// dentro guardaremos una coleccion de objetos libro	
+	// dentro guardaremos una coleccion de objetos Libro	
 	private ArrayList<Libro> libros = new ArrayList();
 	/**
 	 * CONSTRUCTOR
 	 */
 	public Libreria() {
 	}
-	
+	/** ACCESORES DE LAS PROPIEDADES DE LA CLASE */
 	/**
 	 * @return the nombre
 	 */
@@ -64,7 +64,8 @@ public class Libreria {
 	}
 	/**
 	 * Indicamos el envoltorio (libros) y el elemento que devuelve esta coleccion (libro)
-	 * @return the libros
+	 * Los elementos que son un envoltorio  de otros elementos se definen como XmlElementWrapper
+	 * @return libros ArrayList<Libro>
 	 */
 	@XmlElementWrapper(name="libros")
 	@XmlElement(name=  "libro")

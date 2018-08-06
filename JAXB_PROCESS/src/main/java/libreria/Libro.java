@@ -6,18 +6,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * todo string Libro tambien es un elemento principal que contiene a su vez
- * otros elementos Entonces debemos definir el bloque completo libro contiene un
+ * todo elemento Libro tambien es un elemento principal que contiene a su vez
+ * otros tantos. Entonces debemos definir el bloque completo Libro , el cual contiene un
  * atributo isbn
  * 
  * @author Fran
  *
  */
-// libro es tambien un elemento principal que contiene otros elementos
+// libro es tambien otro elemento padre que contiene otros elementos
 @XmlRootElement(name = "libro")
 /*
- * indicamos que libro esta compuesto por una serie de elementos en un orden
- * exacto de nuestro elemento xml
+ * indicamos que libro esta compuesto por una serie de elementos con un orden
+ * exacto en nuestro documento XML
  */
 @XmlType(propOrder = { "isbn", "titulo", "autor" })
 public class Libro {
@@ -27,8 +27,7 @@ public class Libro {
 
 	/**
 	 * Debemos distinguir entre el contenido de los ATRIBUTOS y el contenido de las
-	 * etiquetas Definimos mediante la anotacion que se trata de un atributo en este
-	 * caso e indicamos el nombre del mismo
+	 * etiquetas. Mediante la anotacion indicamos que se trata de un atributo 
 	 * 
 	 * @return the isbn
 	 */
@@ -38,16 +37,16 @@ public class Libro {
 	}
 
 	/**
-	 * @param isbn
-	 *            the isbn to set
+	 * @param isbn the isbn to set
+	 * 
 	 */
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
 	/**
-	 * Si coincide la propiedad con el nombre de la etiqueta o elemento, no es
-	 * obligatorio definirlo. Aqui lo hemos puesto de forma opcional
+	 * No es obligatorio que el nombre de la propiedad de la Clase coincida el nombre de la etiqueta
+	 * Aqui lo hemos puesto de forma opcional
 	 * 
 	 * @return the titulo
 	 */
@@ -57,33 +56,26 @@ public class Libro {
 	}
 
 	/**
-	 * @param titulo
-	 *            the titulo to set
+	 * @param titulo titulo del libro to set
 	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
 	/**
-	 * @return the autor
+	 * @return nombre del autor
 	 */
 	public String getAutor() {
 		return autor;
 	}
 
 	/**
-	 * @param autor
-	 *            the autor to set
+	 * @param autor nombre del autor to set
 	 */
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Libro [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + "]";

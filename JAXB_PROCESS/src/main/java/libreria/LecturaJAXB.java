@@ -22,7 +22,7 @@ public class LecturaJAXB {
 
 			iniciales = "no hay iniciales que valga para " + 
 			array[0].substring(0, 1).toUpperCase() + 
-			array[0].substring(1, array[0].length());
+			array[0].substring(1, array[0].length()).toLowerCase();
 			
 		} else {
 			iniciales = iniciales.substring(0, iniciales.length() - 1);
@@ -33,8 +33,8 @@ public class LecturaJAXB {
 	public static void main(String[] args) {
 
 		// creamos los objetos necesarios para leer el documento
-		// primero el contexto principal
-		// me pide la clase que representa la totalidad del XML, tiene excepcion
+		// primero definimos el contexto principal
+		// me pide la clase que representa la totalidad del XML(root element), tiene excepcion
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(Libreria.class);
 
