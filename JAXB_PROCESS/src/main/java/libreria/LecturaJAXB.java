@@ -48,7 +48,7 @@ public class LecturaJAXB {
 			// Asignamos a Libreria toda la informacion que nos devuelve el xml - unmarshaller devuelve Object
 			Libreria libreria = (Libreria) unmarshaller.unmarshal(file);
 
-			System.out.println("Nombre de la librería: " + libreria.getNombre());
+			System.out.println("Nombre de la librerÃ­a: " + libreria.getNombre());
 			List<Libro> libros = libreria.getLibros();
 
 			System.out.println("Numero de Libros: " + libros.size());
