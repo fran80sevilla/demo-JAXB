@@ -9,7 +9,7 @@ import javax.xml.bind.Unmarshaller;
 
 public class LecturaJAXB {
 
-	public static String inicialesAutor(String nombreAutor) {
+	public static String inicialesAutor(String isbn, String titulo, String nombreAutor) {
 		String array[];
 		String iniciales = "";
 		array = nombreAutor.split(" ");
@@ -27,7 +27,7 @@ public class LecturaJAXB {
 		} else {
 			iniciales = iniciales.substring(0, iniciales.length() - 1);
 		}
-		return iniciales;
+		return "ISBN:" + isbn + " ,titulo: " + titulo + " ,autor: " + nombreAutor + ", iniciales: " + iniciales;
 	}
 
 	public static void main(String[] args) {
@@ -57,8 +57,13 @@ public class LecturaJAXB {
 			for (Libro lib : libros) {
 				// mostramos solo las iniciales del autor a partir del 4º libro
 				if (numero > 2) {
-					System.out.println("ISBN:" + lib.getIsbn() + " ,titulo: " + lib.getTitulo() + " ,autor: "
-							+ lib.getAutor() + ", iniciales: " + inicialesAutor(lib.getAutor()));
+					if (numero == 3) {
+						System.out.println();
+						System.out.println("***** Autores con Iniciales *****");
+						System.out.println();
+					}
+					System.out.println( inicialesAutor(lib.getIsbn(), lib.getTitulo(), lib.getAutor()) ) ;
+					// sin iniciales
 				} else
 					System.out.println("ISBN:" + lib.getIsbn() + " ,titulo: " + lib.getTitulo() + " ,autor: "
 							+ lib.getAutor());
