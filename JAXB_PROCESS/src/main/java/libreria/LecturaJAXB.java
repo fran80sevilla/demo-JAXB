@@ -48,14 +48,14 @@ public class LecturaJAXB {
 			// Asignamos a Libreria toda la informacion que nos devuelve el xml - unmarshaller devuelve Object
 			Libreria libreria = (Libreria) unmarshaller.unmarshal(file);
 
-			System.out.println("Nombre de la librerÃ­a: " + libreria.getNombre());
+			System.out.println("Nombre de la librería: " + libreria.getNombre());
 			List<Libro> libros = libreria.getLibros();
 
 			System.out.println("Numero de Libros: " + libros.size());
 
 			Integer numero = 0;
 			for (Libro lib : libros) {
-				// mostramos solo las iniciales del autor a partir del 4Âº libro
+				// mostramos solo las iniciales del autor a partir del 4º libro
 				if (numero > 2) {
 					if (numero == 3) {
 						System.out.println();
